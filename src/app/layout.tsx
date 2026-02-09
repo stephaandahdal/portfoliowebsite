@@ -13,9 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stephaan Dahdal | Software Engineer",
+  title: "Stephaan Dahdal",
   description:
     "Portfolio of Stephaan Dahdal — Computer Science student at Arizona State University, Full-Stack Developer, and Software Engineer.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   keywords: [
     "Stephaan Dahdal",
     "Software Engineer",
