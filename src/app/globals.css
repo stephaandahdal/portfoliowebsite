@@ -45,6 +45,6 @@ html {
 
 /* Selection */
 ::selection {
-  background-color: rgba(139, 92, 246, 0.3);
+  background-color: rgba(16, 185, 129, 0.3);
   color: white;
 }

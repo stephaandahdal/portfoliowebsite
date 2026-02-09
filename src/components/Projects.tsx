@@ -62,7 +62,7 @@ export default function Projects() {
         >
           <motion.p
             variants={fadeInUp}
-            className="text-sm tracking-[0.3em] uppercase text-violet-400 font-medium mb-4"
+            className="text-sm tracking-[0.3em] uppercase text-emerald-400 font-medium mb-4"
           >
             Featured Work
           </motion.p>
@@ -101,16 +101,16 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "100px" }}
             transition={{ delay: i * 0.2, duration: 0.6 }}
-            className="group flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] h-[70vh] bg-neutral-900/70 border border-neutral-800 rounded-3xl p-8 flex flex-col justify-between hover:border-violet-500/30 transition-all duration-500"
+            className="group flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] h-[70vh] bg-neutral-900/70 border border-neutral-800 rounded-3xl p-8 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500"
           >
             {/* Top: project info */}
             <div className="space-y-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-violet-400 text-sm font-medium mb-1">
+                  <p className="text-emerald-400 text-sm font-medium mb-1">
                     {project.subtitle}
                   </p>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-violet-300 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-300 transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -125,7 +125,7 @@ export default function Projects() {
                     key={j}
                     className="text-neutral-400 text-sm leading-relaxed flex gap-2"
                   >
-                    <span className="text-violet-400 mt-1.5 flex-shrink-0">
+                    <span className="text-emerald-400 mt-1.5 flex-shrink-0">
                       ▹
                     </span>
                     {point}
@@ -140,7 +140,7 @@ export default function Projects() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 text-xs font-medium text-violet-300 bg-violet-500/10 border border-violet-500/20 rounded-full"
+                    className="px-3 py-1 text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
                   >
                     {t}
                   </span>
@@ -153,7 +153,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-neutral-400 hover:text-violet-400 transition-colors text-sm"
+                    className="flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-colors text-sm"
                   >
                     <FiGithub className="w-4 h-4" />
                     Source Code
@@ -164,7 +164,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-neutral-400 hover:text-violet-400 transition-colors text-sm"
+                    className="flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-colors text-sm"
                   >
                     <FiExternalLink className="w-4 h-4" />
                     Live Demo

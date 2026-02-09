@@ -39,7 +39,7 @@ export default function Contact() {
         >
           {/* Heading */}
           <motion.div variants={fadeInUp} className="text-center space-y-4">
-            <p className="text-sm tracking-[0.3em] uppercase text-violet-400 font-medium">
+            <p className="text-sm tracking-[0.3em] uppercase text-emerald-400 font-medium">
               Contact
             </p>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
@@ -62,10 +62,10 @@ export default function Contact() {
                 href={link.href}
                 target={link.label !== "Email" ? "_blank" : undefined}
                 rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-                className="group relative p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-violet-500/30 transition-all duration-300 flex flex-col items-center text-center gap-3"
+                className="group relative p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300 flex flex-col items-center text-center gap-3"
               >
-                <div className="w-12 h-12 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center group-hover:bg-violet-500/20 transition-colors">
-                  <link.icon className="w-5 h-5 text-violet-400" />
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                  <link.icon className="w-5 h-5 text-emerald-400" />
                 </div>
                 <div>
                   <p className="text-white font-medium text-sm mb-0.5">
@@ -73,7 +73,7 @@ export default function Contact() {
                   </p>
                   <p className="text-neutral-500 text-xs">{link.value}</p>
                 </div>
-                <FiArrowUpRight className="absolute top-4 right-4 w-4 h-4 text-neutral-700 group-hover:text-violet-400 transition-colors" />
+                <FiArrowUpRight className="absolute top-4 right-4 w-4 h-4 text-neutral-700 group-hover:text-emerald-400 transition-colors" />
               </a>
             ))}
           </motion.div>

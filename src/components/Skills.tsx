@@ -61,7 +61,7 @@ export default function Skills() {
         >
           {/* Heading */}
           <motion.div variants={fadeInUp} className="text-center space-y-4">
-            <p className="text-sm tracking-[0.3em] uppercase text-violet-400 font-medium">
+            <p className="text-sm tracking-[0.3em] uppercase text-emerald-400 font-medium">
               Skills & Technologies
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
@@ -100,12 +100,12 @@ export default function Skills() {
                         }}
                         whileHover={{
                           scale: 1.05,
-                          borderColor: "rgba(139, 92, 246, 0.3)",
+                          borderColor: "rgba(16, 185, 129, 0.3)",
                         }}
                         className="flex items-center gap-3 p-3 bg-neutral-900/50 border border-neutral-800 rounded-xl cursor-default transition-colors duration-200"
                       >
                         {Icon && (
-                          <Icon className="w-5 h-5 text-violet-400 flex-shrink-0" />
+                          <Icon className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                         )}
                         <span className="text-sm text-neutral-300 font-medium">
                           {skill}

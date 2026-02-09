@@ -13,21 +13,27 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = navLinks.map((link) =>
-        document.querySelector(link.href)
-      );
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      // Use getBoundingClientRect for reliable detection even with GSAP pinned sections
+      const threshold = window.innerHeight * 0.35;
+      let current = "";
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && (section as HTMLElement).offsetTop <= scrollPosition) {
-          setActiveSection(navLinks[i].href);
-          break;
+      for (const link of navLinks) {
+        const section = document.querySelector(link.href);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= threshold && rect.bottom > 0) {
+            current = link.href;
+          }
         }
+      }
+
+      if (current) {
+        setActiveSection(current);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // run once on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -53,10 +59,10 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-lg font-bold text-white tracking-tight hover:text-violet-400 transition-colors"
+            className="text-lg font-bold text-white tracking-tight hover:text-emerald-400 transition-colors"
           >
             {personalInfo.name.split(" ")[0]}
-            <span className="text-violet-400">.</span>
+            <span className="text-emerald-400">.</span>
           </button>
 
           {/* Desktop links */}
@@ -67,7 +73,7 @@ export default function Navbar() {
                 onClick={() => scrollTo(link.href)}
                 className={`relative text-sm font-medium transition-colors duration-200 ${
                   activeSection === link.href
-                    ? "text-violet-400"
+                    ? "text-emerald-400"
                     : "text-neutral-400 hover:text-white"
                 }`}
               >
@@ -75,7 +81,7 @@ export default function Navbar() {
                 {activeSection === link.href && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-violet-400 rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-400 rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -121,7 +127,7 @@ export default function Navbar() {
               <motion.button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className="text-2xl font-medium text-neutral-300 hover:text-violet-400 transition-colors"
+                className="text-2xl font-medium text-neutral-300 hover:text-emerald-400 transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}

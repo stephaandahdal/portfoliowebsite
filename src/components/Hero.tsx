@@ -83,7 +83,7 @@ function TypewriterEffect({ titles }: { titles: string[] }) {
       transition={{ delay: 1.5, duration: 0.8 }}
     >
       <span>{currentText}</span>
-      <span className="animate-pulse ml-0.5 text-violet-400">|</span>
+      <span className="animate-pulse ml-0.5 text-emerald-400">|</span>
     </motion.div>
   );
 }
@@ -104,7 +104,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950" />
         {/* Animated gradient orbs */}
         <motion.div
-          className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-violet-600/20 blur-[120px]"
+          className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-emerald-600/20 blur-[120px]"
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
@@ -117,7 +117,7 @@ export default function Hero() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-blue-600/15 blur-[120px]"
+          className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-yellow-500/15 blur-[120px]"
           animate={{
             x: [0, -80, 0],
             y: [0, 60, 0],
@@ -130,7 +130,7 @@ export default function Hero() {
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-fuchsia-600/10 blur-[100px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-lime-600/10 blur-[100px]"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -155,7 +155,7 @@ export default function Hero() {
       {/* Content */}
       <div className="text-center space-y-6 max-w-4xl">
         <motion.p
-          className="text-sm sm:text-base tracking-[0.3em] uppercase text-violet-400 font-medium"
+          className="text-sm sm:text-base tracking-[0.3em] uppercase text-emerald-400 font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -175,13 +175,13 @@ export default function Hero() {
         >
           <button
             onClick={() => scrollTo("#projects")}
-            className="group relative px-8 py-3.5 bg-violet-600 text-white rounded-full font-medium text-base overflow-hidden transition-all duration-300 hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/25"
+            className="group relative px-8 py-3.5 bg-emerald-600 text-white rounded-full font-medium text-base overflow-hidden transition-all duration-300 hover:bg-emerald-500 hover:shadow-lg hover:shadow-emerald-500/25"
           >
             <span className="relative z-10">View My Work</span>
           </button>
           <button
             onClick={() => scrollTo("#contact")}
-            className="px-8 py-3.5 border border-neutral-700 text-neutral-300 rounded-full font-medium text-base transition-all duration-300 hover:border-violet-500 hover:text-violet-400"
+            className="px-8 py-3.5 border border-neutral-700 text-neutral-300 rounded-full font-medium text-base transition-all duration-300 hover:border-emerald-500 hover:text-emerald-400"
           >
             Get In Touch
           </button>
@@ -204,7 +204,7 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <motion.div
-            className="w-1 h-2 bg-violet-400 rounded-full mt-1.5"
+            className="w-1 h-2 bg-emerald-400 rounded-full mt-1.5"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />

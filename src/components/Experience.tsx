@@ -17,7 +17,7 @@ export default function Experience() {
         >
           {/* Heading */}
           <motion.div variants={fadeInUp} className="text-center space-y-4">
-            <p className="text-sm tracking-[0.3em] uppercase text-violet-400 font-medium">
+            <p className="text-sm tracking-[0.3em] uppercase text-emerald-400 font-medium">
               Experience & Education
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
@@ -41,16 +41,16 @@ export default function Experience() {
               <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                 {/* Content (left side on desktop) */}
                 <div className="ml-12 md:ml-0 md:text-right">
-                  <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-violet-500/30 transition-all duration-300">
+                  <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
                     <div className="flex items-center gap-2 md:justify-end mb-2">
-                      <span className="px-3 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 border border-blue-500/20 rounded-full">
+                      <span className="px-3 py-1 text-xs font-medium text-yellow-300 bg-yellow-500/10 border border-yellow-500/20 rounded-full">
                         Education
                       </span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-1">
                       {education.school}
                     </h3>
-                    <p className="text-violet-400 text-sm font-medium mb-1">
+                    <p className="text-emerald-400 text-sm font-medium mb-1">
                       {education.degree}
                     </p>
                     <p className="text-neutral-500 text-sm mb-3">
@@ -72,7 +72,7 @@ export default function Experience() {
                 <div className="hidden md:block" />
               </div>
               {/* Dot */}
-              <div className="absolute left-4 md:left-1/2 top-8 w-3 h-3 -translate-x-1/2 bg-violet-400 rounded-full border-4 border-neutral-950 z-10" />
+              <div className="absolute left-4 md:left-1/2 top-8 w-3 h-3 -translate-x-1/2 bg-emerald-400 rounded-full border-4 border-neutral-950 z-10" />
             </motion.div>
 
             {/* Experience entries */}
@@ -95,7 +95,7 @@ export default function Experience() {
                       i % 2 !== 0 ? "md:text-right" : ""
                     }`}
                   >
-                    <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-violet-500/30 transition-all duration-300">
+                    <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
                       <div
                         className={`flex items-center gap-2 mb-2 ${
                           i % 2 !== 0 ? "md:justify-end" : ""
@@ -108,7 +108,7 @@ export default function Experience() {
                       <h3 className="text-xl font-bold text-white mb-1">
                         {exp.company}
                       </h3>
-                      <p className="text-violet-400 text-sm font-medium mb-1">
+                      <p className="text-emerald-400 text-sm font-medium mb-1">
                         {exp.role}
                       </p>
                       <p className="text-neutral-500 text-sm mb-3">
@@ -122,7 +122,7 @@ export default function Experience() {
                               i % 2 !== 0 ? "md:flex-row-reverse md:text-right" : ""
                             }`}
                           >
-                            <span className="text-violet-400 mt-0.5 flex-shrink-0">
+                            <span className="text-emerald-400 mt-0.5 flex-shrink-0">
                               ▹
                             </span>
                             <span>{point}</span>
@@ -137,7 +137,7 @@ export default function Experience() {
                 </div>
 
                 {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 top-8 w-3 h-3 -translate-x-1/2 bg-violet-400 rounded-full border-4 border-neutral-950 z-10" />
+                <div className="absolute left-4 md:left-1/2 top-8 w-3 h-3 -translate-x-1/2 bg-emerald-400 rounded-full border-4 border-neutral-950 z-10" />
               </motion.div>
             ))}
           </div>

@@ -18,13 +18,13 @@ export default function About() {
           {/* Left: text */}
           <div className="space-y-6">
             <motion.div variants={fadeInUp}>
-              <p className="text-sm tracking-[0.3em] uppercase text-violet-400 font-medium mb-2">
+              <p className="text-sm tracking-[0.3em] uppercase text-emerald-400 font-medium mb-2">
                 About Me
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
                 Turning ideas into
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400">
                   real products
                 </span>
               </h2>
@@ -41,7 +41,7 @@ export default function About() {
               {education.awards.map((award) => (
                 <span
                   key={award}
-                  className="px-4 py-2 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-300 text-sm"
+                  className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-300 text-sm"
                 >
                   {award}
                 </span>
@@ -51,24 +51,24 @@ export default function About() {
 
           {/* Right: stats cards */}
           <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4">
-            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-violet-500/30 transition-all duration-300">
+            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300">
               <p className="text-4xl font-bold text-white mb-1">
                 {education.gpa}
               </p>
               <p className="text-neutral-500 text-sm">GPA</p>
             </div>
-            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-violet-500/30 transition-all duration-300">
+            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300">
               <p className="text-4xl font-bold text-white mb-1">5x</p>
               <p className="text-neutral-500 text-sm">Dean&apos;s List</p>
             </div>
-            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-violet-500/30 transition-all duration-300">
+            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300">
               <p className="text-4xl font-bold text-white mb-1">
                 {education.graduation.split(" ")[1]}
               </p>
               <p className="text-neutral-500 text-sm">Graduating</p>
             </div>
-            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-violet-500/30 transition-all duration-300">
-              <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400 mb-1">
+            <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300">
+              <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400 mb-1">
                 ASU
               </p>
               <p className="text-neutral-500 text-sm">Fulton Engineering</p>
