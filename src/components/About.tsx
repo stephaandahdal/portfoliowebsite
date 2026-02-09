@@ -38,35 +38,42 @@ export default function About() {
               {personalInfo.bio}
             </motion.p>
 
-            {/* Awards */}
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
-              {education.awards.map((award) => (
-                <span
-                  key={award}
-                  className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-300 text-sm"
-                >
-                  {award}
-                </span>
-              ))}
-            </motion.div>
-
-            {/* Dean's List with clickable PDF links */}
-            <motion.div variants={fadeInUp} className="space-y-3">
-              <p className="text-sm font-medium text-neutral-300">
-                Dean&apos;s List
+            {/* Awards & Honors */}
+            <motion.div variants={fadeInUp} className="space-y-4">
+              <p className="text-sm tracking-[0.2em] uppercase text-emerald-400 font-medium">
+                Awards & Honors
               </p>
-              <div className="flex flex-wrap gap-2">
-                {education.deansListSemesters.map((semester) => (
-                  <a
-                    key={semester.label}
-                    href={semester.file}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1.5 px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-300 text-sm hover:bg-yellow-500/20 hover:border-yellow-500/40 transition-all duration-200"
+
+              {/* Dean's List with clickable PDF links */}
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-neutral-300">
+                  Dean&apos;s List
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {education.deansListSemesters.map((semester) => (
+                    <a
+                      key={semester.label}
+                      href={semester.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-300 text-sm hover:bg-yellow-500/20 hover:border-yellow-500/40 transition-all duration-200"
+                    >
+                      {semester.label}
+                      <FiExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Other awards */}
+              <div className="flex flex-wrap gap-3">
+                {education.awards.map((award) => (
+                  <span
+                    key={award}
+                    className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-300 text-sm"
                   >
-                    {semester.label}
-                    <FiExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
-                  </a>
+                    {award}
+                  </span>
                 ))}
               </div>
             </motion.div>

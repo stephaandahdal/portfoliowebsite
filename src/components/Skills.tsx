@@ -20,6 +20,7 @@ import {
   SiGit,
   SiGithubactions,
   SiCloudflare,
+  SiVercel,
   SiLinux,
 } from "react-icons/si";
 import { FaJava, FaDatabase, FaPaintBrush } from "react-icons/fa";
@@ -44,6 +45,7 @@ const iconMap: Record<string, IconType> = {
   Git: SiGit,
   "GitHub Actions": SiGithubactions,
   Cloudflare: SiCloudflare,
+  Vercel: SiVercel,
   Linux: SiLinux,
   "UI/UX Design": FaPaintBrush,
 };

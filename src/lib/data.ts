@@ -30,14 +30,14 @@ export const education = {
     "Web Development",
   ],
   awards: [
-    "F23 Fulton Engineering Pitch Deck Competition Runner-Up",
+    "Fall 2023 Fulton Engineering Pitch Deck Competition Runner-Up",
   ],
   deansListSemesters: [
-    { label: "Fall 2022", file: "/pdfs/deans-list/F22.pdf" },
-    { label: "Spring 2023", file: "/pdfs/deans-list/S23.pdf" },
-    { label: "Fall 2023", file: "/pdfs/deans-list/F23.pdf" },
-    { label: "Spring 2025", file: "/pdfs/deans-list/S25.pdf" },
-    { label: "Fall 2025", file: "/pdfs/deans-list/F25.pdf" },
+    { label: "Fall 2022", file: "/pdfs/deans-list/DeanF22.pdf" },
+    { label: "Spring 2023", file: "/pdfs/deans-list/DeanS23.pdf" },
+    { label: "Fall 2023", file: "/pdfs/deans-list/DeanF23.pdf" },
+    { label: "Spring 2025", file: "/pdfs/deans-list/DeanS25.pdf" },
+    { label: "Fall 2025", file: "/pdfs/deans-list/DeanF25.pdf" },
   ],
 };
 
@@ -135,7 +135,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "Tools & Other",
-    skills: ["Git", "GitHub Actions", "Cloudflare", "Linux", "UI/UX Design"],
+    skills: ["Git", "GitHub Actions", "Cloudflare", "Vercel", "Linux", "UI/UX Design"],
   },
 ];
 

@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
+import AuroraBackground from "./AuroraBackground";
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 50 },
@@ -20,7 +21,7 @@ const letterAnimation = {
 function AnimatedName({ name }: { name: string }) {
   return (
     <motion.h1
-      className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight"
+      className="text-[clamp(2.5rem,8vw,8rem)] font-bold tracking-tight whitespace-nowrap"
       initial="hidden"
       animate="visible"
       aria-label={name}
@@ -99,58 +100,17 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6"
     >
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950" />
-        {/* Animated gradient orbs */}
-        <motion.div
-          className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-emerald-600/20 blur-[120px]"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-yellow-500/15 blur-[120px]"
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-lime-600/10 blur-[100px]"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
+      {/* Aurora background */}
+      <AuroraBackground />
+      {/* Subtle grid overlay */}
+      <div
+        className="absolute inset-0 -z-[5] opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       {/* Content */}
       <div className="text-center space-y-6 max-w-4xl">

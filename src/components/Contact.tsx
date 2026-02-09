@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
 import { fadeInUp, staggerContainer } from "@/animations/variants";
-import { FiGithub, FiLinkedin, FiMail, FiArrowUpRight } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiArrowUpRight, FiFileText } from "react-icons/fi";
 
 const contactLinks = [
   {
@@ -49,6 +49,20 @@ export default function Contact() {
               I&apos;m currently open to new opportunities and collaborations.
               Feel free to reach out!
             </p>
+          </motion.div>
+
+          {/* Resume button */}
+          <motion.div variants={fadeInUp} className="flex justify-center">
+            <a
+              href="/pdfs/MyResume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 text-white rounded-full font-medium text-base overflow-hidden transition-all duration-300 hover:bg-emerald-500 hover:shadow-lg hover:shadow-emerald-500/25"
+            >
+              <FiFileText className="w-5 h-5" />
+              View My Resume
+              <FiArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </motion.div>
 
           {/* Contact cards */}
