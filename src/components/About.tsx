@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { personalInfo, education } from "@/lib/data";
 import { fadeInUp, staggerContainer } from "@/animations/variants";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function About() {
   return (
@@ -37,6 +38,7 @@ export default function About() {
               {personalInfo.bio}
             </motion.p>
 
+            {/* Awards */}
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
               {education.awards.map((award) => (
                 <span
@@ -46,6 +48,27 @@ export default function About() {
                   {award}
                 </span>
               ))}
+            </motion.div>
+
+            {/* Dean's List with clickable PDF links */}
+            <motion.div variants={fadeInUp} className="space-y-3">
+              <p className="text-sm font-medium text-neutral-300">
+                Dean&apos;s List
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {education.deansListSemesters.map((semester) => (
+                  <a
+                    key={semester.label}
+                    href={semester.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1.5 px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-300 text-sm hover:bg-yellow-500/20 hover:border-yellow-500/40 transition-all duration-200"
+                  >
+                    {semester.label}
+                    <FiExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ))}
+              </div>
             </motion.div>
           </div>
 

@@ -101,10 +101,10 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "100px" }}
             transition={{ delay: i * 0.2, duration: 0.6 }}
-            className="group flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] h-[70vh] bg-neutral-900/70 border border-neutral-800 rounded-3xl p-8 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500"
+            className="group flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] min-h-[70vh] bg-neutral-900/70 border border-neutral-800 rounded-3xl p-8 flex flex-col hover:border-emerald-500/30 transition-all duration-500"
           >
             {/* Top: project info */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-emerald-400 text-sm font-medium mb-1">
@@ -135,7 +135,7 @@ export default function Projects() {
             </div>
 
             {/* Bottom: tech + links */}
-            <div className="space-y-4">
+            <div className="space-y-4 pt-4 mt-auto">
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t) => (
                   <span
