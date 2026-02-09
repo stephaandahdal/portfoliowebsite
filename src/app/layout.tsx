@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Stephaan Dahdal",
   description:
     "Portfolio of Stephaan Dahdal — Computer Science student at Arizona State University, Full-Stack Developer, and Software Engineer.",
+  verification: {
+    google: "zosyrvAsr37Ar15AYwDCNnoC2rHFf2-CKQI6QxEsd9A",
+  },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
