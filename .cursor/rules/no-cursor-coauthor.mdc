@@ -1,0 +1,10 @@
+---
+description: Prevent Cursor co-author trailer in commits
+alwaysApply: true
+---
+
+# Git Commit Attribution Rule
+
+- Never add `Co-authored-by: Cursor <cursoragent@cursor.com>` to any commit message.
+- Never add any Cursor/AI co-author or trailer lines unless explicitly requested by the user.
+- Keep commit attribution to the repository owner/author only.
