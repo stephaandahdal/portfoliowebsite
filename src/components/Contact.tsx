@@ -54,7 +54,7 @@ export default function Contact() {
           {/* Resume button */}
           <motion.div variants={fadeInUp} className="flex justify-center">
             <a
-              href="/pdfs/MyResume.pdf"
+              href="/pdfs/Resume21126.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 text-white rounded-full font-medium text-base overflow-hidden transition-all duration-300 hover:bg-emerald-500 hover:shadow-lg hover:shadow-emerald-500/25"
