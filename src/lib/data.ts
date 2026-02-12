@@ -65,6 +65,38 @@ export const projects: Project[] = [
     period: "Aug 2025 - Present",
   },
   {
+    title: "Simple Programming Language Compiler & Interpreter",
+    subtitle: "Compiler Engineering Project",
+    description: [
+      "Built a full compiler and VM interpreter for a C-like language in C++.",
+      "Implemented lexer + recursive-descent parser to generate instruction-list IR.",
+      "Added symbol-table memory mapping and control flow support (if/while/for/switch).",
+      "Validated behavior with 60+ tests, including nested branching and loop edge cases.",
+    ],
+    tech: ["C++", "Compiler Design", "Data Structures", "Bash", "GCC"],
+    github: "https://github.com/stephaandahdal/compiler-interpreter",
+    period: "April 2025",
+  },
+  {
+    title: "Chain of Custody CLI",
+    subtitle: "Python Blockchain-style Evidence Tracker",
+    description: [
+      "Built a Python CLI to track digital evidence lifecycle events with tamper-evident block chaining.",
+      "Secured case and evidence identifiers with AES encryption and SHA-256 hash-linked integrity checks.",
+      "Implemented intake, check-in/out, removal, history queries, and ledger verification with state-transition validation.",
+    ],
+    tech: [
+      "Python 3",
+      "argparse",
+      "AES (pycryptodome)",
+      "SHA-256",
+      "struct",
+      "Data Integrity Validation",
+    ],
+    github: "https://github.com/stephaandahdal/chainofcustody",
+    period: "Nov 2025",
+  },
+  {
     title: "Personal CV Website",
     subtitle: "Personal Project",
     description: [
