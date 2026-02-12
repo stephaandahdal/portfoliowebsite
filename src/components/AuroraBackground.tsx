@@ -25,10 +25,20 @@ export default function AuroraBackground() {
     if (!ctx) return;
 
     let animationId: number;
+    let viewportWidth = window.innerWidth;
+    let viewportHeight = window.innerHeight;
+    let isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const speedMultiplier = 1.12;
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      viewportWidth = window.innerWidth;
+      viewportHeight = window.innerHeight;
+      isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+      const dpr = isMobile ? 1.5 : Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(viewportWidth * dpr);
+      canvas.height = Math.floor(viewportHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     resize();
@@ -94,7 +104,7 @@ export default function AuroraBackground() {
     ];
 
     const getBandSample = (x: number, band: AuroraBand, t: number, h: number) => {
-      const drift = t * band.speed;
+      const drift = t * band.speed * speedMultiplier;
       const baseY = h * band.yOffset;
 
       const wave1 = Math.sin(x * band.frequency + drift + band.phase) * band.amplitude;
@@ -112,20 +122,22 @@ export default function AuroraBackground() {
       const columnA = (Math.sin(x * 0.017 + drift * 1.4 + band.phase) + 1) / 2;
       const columnB = (Math.sin(x * 0.031 - drift * 0.9 + band.phase * 2) + 1) / 2;
       const columnC = (Math.sin(x * 0.052 + drift * 1.7 + band.phase * 0.6) + 1) / 2;
-      const curtain = Math.pow(columnA * 0.5 + columnB * 0.3 + columnC * 0.2, 1.55);
+      // Keep curtain modulation softer so individual wave contours blend more seamlessly.
+      const curtain = Math.pow(columnA * 0.5 + columnB * 0.3 + columnC * 0.2, 1.15);
 
       const yTop = baseY + wave1 + wave2 + wave3 + wave4;
       const thickness =
-        band.width * (0.24 + curtain * 0.72) +
-        Math.sin(x * 0.01 + drift * 0.6 + band.phase) * (band.width * 0.09);
+        band.width * (0.42 + curtain * 0.62) +
+        Math.sin(x * 0.01 + drift * 0.6 + band.phase) * (band.width * 0.03);
       const yBottom = yTop + Math.max(40, thickness);
 
       return { yTop, yBottom, curtain };
     };
 
     const drawAurora = (timestamp: number) => {
-      const { width, height } = canvas;
       const time = timestamp / 1000;
+      const width = viewportWidth;
+      const height = viewportHeight;
 
       // Clear with dark background
       ctx.fillStyle = "#0a0a0a";
@@ -183,9 +195,29 @@ export default function AuroraBackground() {
         gradient.addColorStop(1, `rgba(${r1}, ${g1}, ${b1}, 0)`);
 
         ctx.fillStyle = gradient;
-        ctx.filter = "blur(20px)";
-        ctx.fill();
-        ctx.filter = "none";
+
+        if (isMobile) {
+          // Mobile fallback: shadow blur keeps glow visible where canvas filter blur is inconsistent.
+          ctx.save();
+          ctx.globalAlpha = 0.58;
+          ctx.shadowColor = `rgba(${r2}, ${g2}, ${b2}, ${Math.min(1, a * 0.95)})`;
+          ctx.shadowBlur = 34;
+          ctx.fill();
+          ctx.restore();
+
+          // Small extra soft pass helps hide residual ribbon silhouettes.
+          ctx.save();
+          ctx.globalAlpha = 0.26;
+          ctx.filter = "blur(16px)";
+          ctx.fill();
+          ctx.filter = "none";
+          ctx.restore();
+        } else {
+          // Original lightweight desktop blur method.
+          ctx.filter = "blur(30px)";
+          ctx.fill();
+          ctx.filter = "none";
+        }
       }
 
       ctx.globalCompositeOperation = "source-over";
