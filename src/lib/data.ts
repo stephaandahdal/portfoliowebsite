@@ -65,11 +65,11 @@ export const projects: Project[] = [
     period: "Aug 2025 - Present",
   },
   {
-    title: "Simple Programming Language Compiler & Interpreter",
+    title: "Programming Language Compiler & Interpreter",
     subtitle: "Compiler Engineering Project",
     description: [
       "Built a full compiler and VM interpreter for a C-like language in C++.",
-      "Implemented lexer + recursive-descent parser to generate instruction-list IR.",
+      "Implemented a lexer and a recursive-descent parser to generate instruction-list IR.",
       "Added symbol-table memory mapping and control flow support (if/while/for/switch).",
       "Validated behavior with 60+ tests, including nested branching and loop edge cases.",
     ],
@@ -97,15 +97,22 @@ export const projects: Project[] = [
     period: "Nov 2025",
   },
   {
-    title: "Personal CV Website",
-    subtitle: "Personal Project",
+    title: "Developer Portfolio Website",
+    subtitle: "Personal Branding Web Project",
     description: [
-      "A simple, responsive personal portfolio website showcasing experience, skills, and projects.",
-      "Built with HTML, CSS, and JavaScript.",
-      "Features smooth scroll animation, theme toggle, and optimized UI for speed.",
+      "Built a modern portfolio website to showcase projects, skills, and experience with a clean, responsive UI.",
+      "Implemented reusable TypeScript-driven components and smooth interactive animations for a polished user experience.",
+      "Improved discoverability with production-ready SEO metadata, sitemap, robots configuration, and social preview support.",
     ],
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/stephaandahdal/cvwebsite",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+    ],
+    github: "https://github.com/stephaandahdal/portfoliowebsite",
     period: "Feb 2026",
   },
 ];
