@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { personalInfo } from "@/lib/data";
-import AuroraBackground from "./AuroraBackground";
+import LiquidEther from "./LiquidEther";
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 50 },
@@ -41,51 +41,46 @@ function AnimatedName({ name }: { name: string }) {
   );
 }
 
-function TypewriterEffect({ titles }: { titles: string[] }) {
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const typeSpeed = 80;
-  const deleteSpeed = 40;
-  const pauseDuration = 2000;
-
-  const tick = useCallback(() => {
-    const fullText = titles[currentTitleIndex];
-
-    if (!isDeleting) {
-      setCurrentText(fullText.substring(0, currentText.length + 1));
-
-      if (currentText.length === fullText.length) {
-        setTimeout(() => setIsDeleting(true), pauseDuration);
-        return;
-      }
-    } else {
-      setCurrentText(fullText.substring(0, currentText.length - 1));
-
-      if (currentText.length === 0) {
-        setIsDeleting(false);
-        setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-        return;
-      }
-    }
-  }, [currentText, currentTitleIndex, isDeleting, titles]);
+function TitleCycler({ titles }: { titles: string[] }) {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timeout = setTimeout(tick, isDeleting ? deleteSpeed : typeSpeed);
-    return () => clearTimeout(timeout);
-  }, [tick, isDeleting]);
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % titles.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [titles.length]);
 
   return (
-    <motion.div
-      className="text-xl sm:text-2xl md:text-3xl text-neutral-400 font-light h-10 md:h-12"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.5, duration: 0.8 }}
-    >
-      <span>{currentText}</span>
-      <span className="animate-pulse ml-0.5 text-emerald-400">|</span>
-    </motion.div>
+    <div className="h-10 md:h-12 flex items-center justify-center overflow-hidden perspective-[400px]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={titles[index]}
+          initial={{ opacity: 0, rotateX: 90, y: 20 }}
+          animate={{ opacity: 1, rotateX: 0, y: 0 }}
+          exit={{ opacity: 0, rotateX: -90, y: -20 }}
+          transition={{ duration: 0.5, ease: "backOut" }}
+          className="flex gap-[0.15em]"
+        >
+          {titles[index].split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, rotateX: 90, y: 20 }}
+              animate={{ opacity: 1, rotateX: 0, y: 0 }}
+              exit={{ opacity: 0, rotateX: -90, y: -20 }}
+              transition={{
+                duration: 0.5,
+                ease: "backOut",
+                delay: i * 0.03, // Stagger effect per character
+              }}
+              className="text-lg sm:text-xl md:text-2xl text-neutral-400 font-medium tracking-[0.15em] uppercase inline-block origin-bottom"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -100,8 +95,26 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6"
     >
-      {/* Aurora background */}
-      <AuroraBackground />
+      {/* Liquid Ether background */}
+      <div className="absolute inset-0 -z-10">
+        <LiquidEther
+          colors={["#106a27", "#28e24d", "#dcbc18"]}
+          mouseForce={30}
+          cursorSize={100}
+          isViscous
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={19}
+          resolution={0.5}
+          isBounce
+          autoDemo
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
       {/* Subtle grid overlay */}
       <div
         className="absolute inset-0 -z-[5] opacity-[0.025]"
@@ -111,6 +124,9 @@ export default function Hero() {
           backgroundSize: "60px 60px",
         }}
       />
+
+      {/* GRADIENT FADE: Smoothes the transition to the next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent pointer-events-none -z-[4]" />
 
       {/* Content */}
       <div className="text-center space-y-6 max-w-4xl">
@@ -125,7 +141,7 @@ export default function Hero() {
 
         <AnimatedName name={personalInfo.name} />
 
-        <TypewriterEffect titles={personalInfo.titles} />
+        <TitleCycler titles={personalInfo.titles} />
 
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"

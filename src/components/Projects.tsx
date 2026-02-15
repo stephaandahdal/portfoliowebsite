@@ -13,17 +13,17 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const section = sectionRef.current;
     const scrollContainer = scrollContainerRef.current;
     if (!section || !scrollContainer) return;
 
-    // Calculate total scroll width
     const totalWidth = scrollContainer.scrollWidth - window.innerWidth;
 
     const ctx = gsap.context(() => {
-      gsap.to(scrollContainer, {
+      const scrollTween = gsap.to(scrollContainer, {
         x: -totalWidth,
         ease: "none",
         scrollTrigger: {
@@ -35,6 +35,29 @@ export default function Projects() {
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
+      });
+
+      // Animate each card as it enters the horizontal viewport (staggered so they appear sequentially)
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.125,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              containerAnimation: scrollTween,
+              start: "left 85%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          }
+        );
       });
     }, section);
 
@@ -95,12 +118,10 @@ export default function Projects() {
 
         {/* Project cards */}
         {projects.map((project, i) => (
-          <motion.div
+          <div
             key={project.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "100px" }}
-            transition={{ delay: i * 0.2, duration: 0.6 }}
+            ref={(el) => { cardRefs.current[i] = el; }}
+            style={{ opacity: 0, transform: "translateY(40px)" }}
             className="group flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] min-h-[70vh] bg-neutral-900/70 border border-neutral-800 rounded-3xl p-8 flex flex-col hover:border-emerald-500/30 transition-all duration-500"
           >
             {/* Top: project info */}
@@ -110,7 +131,7 @@ export default function Projects() {
                   <p className="text-emerald-400 text-sm font-medium mb-1">
                     {project.subtitle}
                   </p>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-bold shimmer-text">
                     {project.title}
                   </h3>
                 </div>
@@ -172,7 +193,7 @@ export default function Projects() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
 
         {/* Spacer for scroll end */}

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { personalInfo, education } from "@/lib/data";
 import { fadeInUp, staggerContainer } from "@/animations/variants";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiFileText } from "react-icons/fi";
 
 export default function About() {
   return (
@@ -25,7 +25,7 @@ export default function About() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
                 Turning ideas into
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400">
+                <span className="shimmer-text">
                   real products
                 </span>
               </h2>
@@ -46,7 +46,7 @@ export default function About() {
 
               {/* Dean's List with clickable PDF links */}
               <div className="space-y-2">
-                <p className="text-sm font-medium text-neutral-300">
+                <p className="text-xl font-bold shimmer-text">
                   Dean&apos;s List
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -59,7 +59,7 @@ export default function About() {
                       className="group inline-flex items-center gap-1.5 px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-300 text-sm hover:bg-yellow-500/20 hover:border-yellow-500/40 transition-all duration-200"
                     >
                       {semester.label}
-                      <FiExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      <FiFileText className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                     </a>
                   ))}
                 </div>
@@ -98,7 +98,7 @@ export default function About() {
               <p className="text-neutral-500 text-sm">Graduating</p>
             </div>
             <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300">
-              <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-yellow-400 mb-1">
+              <p className="text-4xl font-bold shimmer-text mb-1">
                 ASU
               </p>
               <p className="text-neutral-500 text-sm">Fulton Engineering</p>

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { skillCategories } from "@/lib/data";
 import { fadeInUp, staggerContainer } from "@/animations/variants";
 import {
@@ -50,6 +51,87 @@ const iconMap: Record<string, IconType> = {
   "UI/UX Design": FaPaintBrush,
 };
 
+function SkillCard({
+  skill,
+  Icon,
+  index,
+  categoryIndex,
+}: {
+  skill: string;
+  Icon: IconType;
+  index: number;
+  categoryIndex: number;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isHovered) {
+      controls.start({
+        scale: [1, 1.05, 1],
+        borderColor: "rgba(16, 185, 129, 0.5)",
+        transition: { duration: 0.6, ease: "easeInOut" },
+      });
+    } else {
+      controls.start({
+        scale: 1,
+        borderColor: "rgba(38, 38, 38, 1)",
+        transition: { duration: 0.1 },
+      });
+    }
+  }, [isHovered, controls]);
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: categoryIndex * 0.1 + index * 0.05,
+            duration: 0.4,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      }}
+      animate={controls}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative flex items-center gap-3 p-3 bg-neutral-900/50 border border-neutral-800 rounded-xl cursor-default overflow-hidden"
+    >
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            initial={{ width: 0, height: 0, opacity: 0.4 }}
+            animate={{
+              width: "250%",
+              height: "250%",
+              opacity: 0,
+            }}
+            exit={{ opacity: 0, transition: { duration: 0 } }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="absolute bg-emerald-500/30 rounded-full z-0 pointer-events-none"
+            style={{
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      <div className="relative z-10 flex items-center gap-3">
+        {Icon && <Icon className="w-5 h-5 text-emerald-400 flex-shrink-0" />}
+        <span className="text-sm text-neutral-300 font-medium">{skill}</span>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Skills() {
   return (
     <section id="skills" className="py-24 md:py-32 px-6">
@@ -90,29 +172,13 @@ export default function Skills() {
                   {category.skills.map((skill, skillIdx) => {
                     const Icon = iconMap[skill];
                     return (
-                      <motion.div
+                      <SkillCard
                         key={skill}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          delay: catIdx * 0.1 + skillIdx * 0.05,
-                          duration: 0.4,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                        whileHover={{
-                          scale: 1.05,
-                          borderColor: "rgba(16, 185, 129, 0.3)",
-                        }}
-                        className="flex items-center gap-3 p-3 bg-neutral-900/50 border border-neutral-800 rounded-xl cursor-default transition-colors duration-200"
-                      >
-                        {Icon && (
-                          <Icon className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                        )}
-                        <span className="text-sm text-neutral-300 font-medium">
-                          {skill}
-                        </span>
-                      </motion.div>
+                        skill={skill}
+                        Icon={Icon}
+                        index={skillIdx}
+                        categoryIndex={catIdx}
+                      />
                     );
                   })}
                 </div>
