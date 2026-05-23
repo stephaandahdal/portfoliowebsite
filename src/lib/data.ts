@@ -10,7 +10,7 @@ export const personalInfo = {
     "Database Systems",
     "Full-Stack Developer",
   ],
-  bio: "I'm an Arizona State University Computer Science graduate from the Ira A. Fulton Schools of Engineering, with a 3.9 GPA. I'm passionate about building full-stack web applications that solve real problems — from healthcare platforms to developer tools. I love crafting clean, performant user experiences with modern technologies.",
+  bio: "I'm an Arizona State University Computer Science graduate from the Ira A. Fulton Schools of Engineering, with a 3.91 GPA. I'm passionate about building full-stack web applications that solve real problems — from healthcare platforms to developer tools. I love crafting clean, performant user experiences with modern technologies.",
 };
 
 export const education = {
@@ -18,7 +18,7 @@ export const education = {
   department: "Ira A. Fulton Schools of Engineering",
   location: "Tempe, AZ",
   degree: "Bachelor of Science in Computer Science",
-  gpa: "3.9",
+  gpa: "3.91",
   graduation: "May 2026 (Completed)",
   coursework: [
     "Data Structures and Algorithms",
