@@ -95,7 +95,7 @@ export default function About() {
               <p className="text-4xl font-bold text-white mb-1">
                 {education.graduation.split(" ")[1]}
               </p>
-              <p className="text-neutral-500 text-sm">Graduating</p>
+              <p className="text-neutral-500 text-sm">Graduated</p>
             </div>
             <div className="group p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:border-emerald-500/30 transition-all duration-300">
               <p className="text-4xl font-bold shimmer-text mb-1">

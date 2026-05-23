@@ -52,7 +52,7 @@ function TitleCycler({ titles }: { titles: string[] }) {
   }, [titles.length]);
 
   return (
-    <div className="h-10 md:h-12 flex items-center justify-center overflow-hidden perspective-[400px]">
+    <div className="min-h-[3.5rem] sm:h-12 flex items-center justify-center overflow-hidden perspective-[400px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={titles[index]}
@@ -60,24 +60,11 @@ function TitleCycler({ titles }: { titles: string[] }) {
           animate={{ opacity: 1, rotateX: 0, y: 0 }}
           exit={{ opacity: 0, rotateX: -90, y: -20 }}
           transition={{ duration: 0.5, ease: "backOut" }}
-          className="flex gap-[0.15em]"
+          className="max-w-[90vw] px-2 text-center"
         >
-          {titles[index].split("").map((char, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, rotateX: 90, y: 20 }}
-              animate={{ opacity: 1, rotateX: 0, y: 0 }}
-              exit={{ opacity: 0, rotateX: -90, y: -20 }}
-              transition={{
-                duration: 0.5,
-                ease: "backOut",
-                delay: i * 0.03, // Stagger effect per character
-              }}
-              className="text-lg sm:text-xl md:text-2xl text-neutral-400 font-medium tracking-[0.15em] uppercase inline-block origin-bottom"
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
+          <p className="text-base sm:text-xl md:text-2xl text-neutral-400 font-medium tracking-[0.08em] sm:tracking-[0.12em] uppercase leading-tight break-words">
+            {titles[index]}
+          </p>
         </motion.div>
       </AnimatePresence>
     </div>

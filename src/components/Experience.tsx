@@ -54,7 +54,7 @@ export default function Experience() {
                       {education.degree}
                     </p>
                     <p className="text-neutral-500 text-sm mb-3">
-                      {education.location} · GPA: {education.gpa} · {education.graduation}
+                      {education.location} · GPA: {education.gpa} · Graduated {education.graduation}
                     </p>
                     <div className="flex flex-wrap gap-1.5 md:justify-end">
                       {education.coursework.slice(0, 4).map((course) => (

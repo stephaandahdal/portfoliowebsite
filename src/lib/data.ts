@@ -4,13 +4,13 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/stephaandahdal/",
   github: "https://github.com/stephaandahdal",
   titles: [
-    "Computer Science Senior at ASU",
+    "ASU Computer Science Alum",
     "Entry-Level Software Engineer",
     "Web Development",
     "Database Systems",
     "Full-Stack Developer",
   ],
-  bio: "I'm a Computer Science senior at Arizona State University's Ira A. Fulton Schools of Engineering, graduating May 2026 with a 3.9 GPA. I'm passionate about building full-stack web applications that solve real problems — from healthcare platforms to developer tools. I love crafting clean, performant user experiences with modern technologies.",
+  bio: "I'm an Arizona State University Computer Science graduate from the Ira A. Fulton Schools of Engineering, with a 3.9 GPA. I'm passionate about building full-stack web applications that solve real problems — from healthcare platforms to developer tools. I love crafting clean, performant user experiences with modern technologies.",
 };
 
 export const education = {
@@ -19,7 +19,7 @@ export const education = {
   location: "Tempe, AZ",
   degree: "Bachelor of Science in Computer Science",
   gpa: "3.9",
-  graduation: "May 2026",
+  graduation: "May 2026 (Completed)",
   coursework: [
     "Data Structures and Algorithms",
     "Object-Oriented Programming",
