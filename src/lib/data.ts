@@ -4,7 +4,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/stephaandahdal/",
   github: "https://github.com/stephaandahdal",
   titles: [
-    "ASU Computer Science Alum",
+    "ASU Computer Science Graduate",
     "Entry-Level Software Engineer",
     "Web Development",
     "Database Systems",
