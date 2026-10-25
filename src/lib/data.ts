@@ -131,7 +131,7 @@ export const experiences: Experience[] = [
     company: "Benessere North",
     role: "Software Engineering Intern (Capstone)",
     location: "Ontario, CA (Remote)",
-    period: "Aug 2025 - Present",
+    period: "Aug 2025 - May 2026",
     type: "work",
     description: [
       "Developed a web app where users can directly receive doctor feedback about meal plans and health/pain metrics.",
@@ -142,14 +142,14 @@ export const experiences: Experience[] = [
   },
   {
     company: "AutoZone",
-    role: "Customer Sales Expert",
+    role: "Parts Sales Manager",
     location: "Phoenix, AZ",
     period: "Jun 2024 - Present",
     type: "work",
     description: [
-      "Assisted customers by diagnosing issues, strengthening problem-solving and communication skills.",
-      "Collaborated with team members to prioritize tasks and efficient store operations in a fast-paced environment.",
-      "Communicated technical information clearly to customers with varying levels of knowledge.",
+      "Coordinate daily tasks and team responsibilities to maintain efficient store operations in a fast-paced environment.",
+      "Support and guide team members in customer service, inventory processes, and operational procedures.",
+      "Resolve customer needs by diagnosing automotive issues and communicating technical information clearly.",
     ],
   },
 ];
